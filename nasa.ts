@@ -1,5 +1,3 @@
-type NasaMessage = ''
-
-interface NASA {
-    sendMessage: (message: NasaMessage) => void,
+export const sendMessage = (rover: any, message: any) => {
+    return ''
 }

@@ -4,6 +4,7 @@ exports.assert = void 0;
 // var assert = require('assert')
 var Mars = require('./planet').Mars;
 var _a = require('./rover'), Rover = _a.Rover, RoverLocation = _a.RoverLocation;
+var sendMessage = require('./nasa').sendMessage;
 var parsedInput = require('./helpers').parsedInput;
 var assert = function (cond) {
     if (!cond) {
@@ -28,17 +29,13 @@ var testOne = function () {
     var rover1Message = parsedInput.rovers[0].nasaMessage;
     var rover2 = parsedInput.rovers[1];
     var rover2Message = parsedInput.rovers[1].nasaMessage;
-
-    nasa.sendMessage(rover1, rover1Message);
-    nasa.sendMessage(rover2, rover2Message);
-
-    assert(rover1.location.x === 1)
-    assert(rover1.location.y === 3)
-    assert(rover1.location.direction === N)
-
-    assert(rover2.location.x === 5)
-    assert(rover2.location.y === 1)
-    assert(rover2.location.direction === E)
-    
+    sendMessage(rover1, rover1Message);
+    sendMessage(rover2, rover2Message);
+    (0, exports.assert)(rover1.location.x === 1);
+    (0, exports.assert)(rover1.location.y === 3);
+    (0, exports.assert)(rover1.location.direction === 'N');
+    (0, exports.assert)(rover2.location.x === 5);
+    (0, exports.assert)(rover2.location.y === 1);
+    (0, exports.assert)(rover2.location.direction === 'E');
 };
 testOne();
