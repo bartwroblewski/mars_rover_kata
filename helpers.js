@@ -16,11 +16,11 @@ var parseInput = function (input) {
             },
             {
                 location: {
-                    x: 0,
-                    y: 0,
-                    direction: ''
+                    x: Number(input[3][0]),
+                    y: Number(input[3][2]),
+                    direction: input[3][4]
                 },
-                nasaMessage: ''
+                nasaMessage: input[4]
             },
         ]
     };

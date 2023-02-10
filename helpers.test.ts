@@ -22,10 +22,10 @@ const testParseInput = () => {
     assert(parsedInput.rovers[0].location.direction === 'N')
     assert(parsedInput.rovers[0].nasaMessage === 'LMLMLMLMM')
 
-    // assert(parsedInput.rovers[1].location.x === 3)
-    // assert(parsedInput.rovers[1].location.y === 3)
-    // assert(parsedInput.rovers[1].location.direction === 'E')
-    // assert(parsedInput.rovers[1].nasaMessage === 'MMRMMRMRRM')
+    assert(parsedInput.rovers[1].location.x === 3)
+    assert(parsedInput.rovers[1].location.y === 3)
+    assert(parsedInput.rovers[1].location.direction === 'E')
+    assert(parsedInput.rovers[1].nasaMessage === 'MMRMMRMRRM')
 }
 
 testParseInput()
