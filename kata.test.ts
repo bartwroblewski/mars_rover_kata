@@ -22,8 +22,10 @@ const testOne = () => {
     '5 1 E',
   ]
     const parsedInput = parseInput(input);
+
     const rover1 = parsedInput.rovers[0];
     const rover1Message = parsedInput.rovers[0].nasaMessage;
+    
     const rover2 = parsedInput.rovers[1];
     const rover2Message = parsedInput.rovers[1].nasaMessage;
 
