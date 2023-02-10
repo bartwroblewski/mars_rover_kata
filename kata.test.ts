@@ -2,7 +2,7 @@
 var { Mars } = require('./planet')
 var { Rover, RoverLocation } = require('./rover')
 var { sendMessage } = require('./nasa')
-var { parsedInput } = require('./helpers')
+var { parseInput } = require('./helpers')
 
 export const assert = (cond) => {
   if(!cond) {

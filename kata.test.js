@@ -5,7 +5,7 @@ exports.assert = void 0;
 var Mars = require('./planet').Mars;
 var _a = require('./rover'), Rover = _a.Rover, RoverLocation = _a.RoverLocation;
 var sendMessage = require('./nasa').sendMessage;
-var parsedInput = require('./helpers').parsedInput;
+var parseInput = require('./helpers').parseInput;
 var assert = function (cond) {
     if (!cond) {
         throw new Error('Assertion error');
