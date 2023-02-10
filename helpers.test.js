@@ -7,12 +7,21 @@ var testParseInput = function () {
         'LMLMLMLMM',
         '3 3 E',
         'MMRMMRMRRM',
-    ].reduce(function (acc, curr) { return acc + ' ' + curr; });
+    ]; //.reduce((acc, curr) => acc + ' ' + curr)
     var parsedInput = parseInput(input);
     console.log(parsedInput);
     assert(parsedInput.planetCoordinates.x0 === 0);
     assert(parsedInput.planetCoordinates.y0 === 0);
     assert(parsedInput.planetCoordinates.x1 === 5);
     assert(parsedInput.planetCoordinates.y1 === 5);
+    console.log(parsedInput.rovers[0]);
+    assert(parsedInput.rovers[0].location.x === 1);
+    assert(parsedInput.rovers[0].location.y === 2);
+    assert(parsedInput.rovers[0].location.direction === 'N');
+    assert(parsedInput.rovers[0].nasaMessage === 'LMLMLMLMM');
+    // assert(parsedInput.rovers[1].location.x === 3)
+    // assert(parsedInput.rovers[1].location.y === 3)
+    // assert(parsedInput.rovers[1].location.direction === 'E')
+    // assert(parsedInput.rovers[1].nasaMessage === 'MMRMMRMRRM')
 };
 testParseInput();
