@@ -2,7 +2,7 @@
 var { Mars } = require('./planet')
 var { Rover, RoverLocation } = require('./rover')
 
-const assert = (cond) => {
+export const assert = (cond) => {
   if(!cond) {
     throw new Error('Assertion error')
   }
@@ -15,7 +15,6 @@ const testOne = () => {
     '3 3 E',
     'MMRMMRMRRM',
   ].reduce((acc, curr) => acc + ' ' + curr)
-  console.log(input)
 }
 
 testOne()
