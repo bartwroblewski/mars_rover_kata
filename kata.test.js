@@ -29,11 +29,13 @@ var testOne = function () {
     var rover1Message = parsedInput.rovers[0].nasaMessage;
     var rover2 = parsedInput.rovers[1];
     var rover2Message = parsedInput.rovers[1].nasaMessage;
-    sendMessage(rover1, rover1Message);
-    sendMessage(rover2, rover2Message);
-    // assert(rover1.location.x === 1)
-    // assert(rover1.location.y === 3)
-    // assert(rover1.location.direction === 'N')
+    console.log(rover1);
+    var newRover1 = sendMessage(rover1, 'L');
+    console.log(newRover1);
+    // const newRover2 = sendMessage(rover2, rover2Message);
+    // assert(newRover1.location.x === 1)
+    // assert(newRover1.location.y === 3)
+    // assert(newRover1.location.direction === 'N')
     // assert(rover2.location.x === 5)
     // assert(rover2.location.y === 1)
     // assert(rover2.location.direction === 'E')

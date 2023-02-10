@@ -1,6 +1,6 @@
 var { rotate, move } = require('./helpers')
 
-export const sendMessage = (rover: any, message: any) => {
+export const sendMessage = (rover: any, message: 'L' | 'R' | 'M') => {
     const { x, y } = rover.location
     if (message === 'L' || message === 'R') {
         return {
@@ -8,11 +8,12 @@ export const sendMessage = (rover: any, message: any) => {
             location: {
                 x: rover.location.x,
                 y: rover.location.y,
-                direction: rotate(rover.direction, message),
+                direction: rotate(rover.location.direction, message),
             }
         }
     }
     const newLocation = move({x, y}, message)
+    console.log(newLocation)
     return {
         ...rover,
         location: {
