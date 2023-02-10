@@ -35,3 +35,15 @@ export const rotate = (initDirection: Direction, rotation: Rotation): Direction 
     }
     return mapping[initDirection][rotation]
 }
+
+type Location = {x: number, y: number}
+
+export const move = (location: Location, direction: Direction): Location => {
+    const mapping: Record<Direction, Location> = {
+        N: {x: location.x, y: location.y + 1},
+        S: {x: location.x, y: location.y - 1},
+        E: {x: location.x + 1, y: location.y},
+        W: {x: location.x -1, y: location.y},
+    }
+    return mapping[direction]
+}

@@ -1,6 +1,7 @@
 "use strict";
 exports.__esModule = true;
 exports.sendMessage = void 0;
+var rotate = require('./helpers').rotate;
 var sendMessage = function (rover, message) {
     return '';
 };
