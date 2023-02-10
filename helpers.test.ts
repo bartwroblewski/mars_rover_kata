@@ -1,4 +1,4 @@
-var { parseInput } = require('./helpers')
+var { parseInput, rotate } = require('./helpers')
 var { assert } = require('./kata.test')
 
 const testParseInput = () => {
@@ -10,7 +10,7 @@ const testParseInput = () => {
         'MMRMMRMRRM',
       ]//.reduce((acc, curr) => acc + ' ' + curr)
     const parsedInput = parseInput(input)
-    
+
     assert(parsedInput.planetCoordinates.x0 === 0)
     assert(parsedInput.planetCoordinates.y0 === 0)
     assert(parsedInput.planetCoordinates.x1 === 5)

@@ -1,4 +1,4 @@
-var parseInput = require('./helpers').parseInput;
+var _a = require('./helpers'), parseInput = _a.parseInput, rotate = _a.rotate;
 var assert = require('./kata.test').assert;
 var testParseInput = function () {
     var input = [

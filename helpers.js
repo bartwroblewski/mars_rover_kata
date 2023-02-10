@@ -1,6 +1,6 @@
 "use strict";
 exports.__esModule = true;
-exports.parseInput = void 0;
+exports.rotate = exports.parseInput = void 0;
 var parseInput = function (input) {
     // const rovers
     return {
@@ -26,3 +26,13 @@ var parseInput = function (input) {
     };
 };
 exports.parseInput = parseInput;
+var rotate = function (initDirection, rotation) {
+    var mapping = {
+        N: { L: 'W', R: 'E' },
+        S: { L: 'E', R: 'W' },
+        E: { L: 'N', R: 'S' },
+        W: { L: 'S', R: 'N' }
+    };
+    return mapping[initDirection][rotation];
+};
+exports.rotate = rotate;

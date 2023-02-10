@@ -22,3 +22,16 @@ export const parseInput = (input: string) => {
         ]
     }
 }
+
+type Direction = 'N' | 'S' | 'E' | 'W'
+type Rotation = 'L' | 'R'
+
+export const rotate = (initDirection: Direction, rotation: Rotation): Direction => {
+    const mapping: Record<Direction, Record<Rotation, Direction>> = {
+        N: {L: 'W', R: 'E'},
+        S: {L: 'E', R: 'W'},
+        E: {L: 'N', R: 'S'},
+        W: {L: 'S', R: 'N'},
+    }
+    return mapping[initDirection][rotation]
+}
