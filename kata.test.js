@@ -29,15 +29,15 @@ var testOne = function () {
     var rover1Message = parsedInput.rovers[0].nasaMessage;
     var rover2 = parsedInput.rovers[1];
     var rover2Message = parsedInput.rovers[1].nasaMessage;
-    console.log(rover1);
-    var newRover1 = sendMessage(rover1, 'L');
-    console.log(newRover1);
-    // const newRover2 = sendMessage(rover2, rover2Message);
-    // assert(newRover1.location.x === 1)
-    // assert(newRover1.location.y === 3)
-    // assert(newRover1.location.direction === 'N')
-    // assert(rover2.location.x === 5)
-    // assert(rover2.location.y === 1)
-    // assert(rover2.location.direction === 'E')
+    var newRover1 = Array.from(rover1Message).map(function (char) { return sendMessage(rover1, char); });
+    newRover1 = newRover1[newRover1.length - 1];
+    (0, exports.assert)(newRover1.location.x === 1);
+    (0, exports.assert)(newRover1.location.y === 3);
+    (0, exports.assert)(newRover1.location.direction === 'N');
+    // let newRover2 = Array.from(rover2Message).map(char => sendMessage(rover2, char))
+    // newRover2 = newRover2[newRover2.length -1]
+    // assert(newRover2.location.x === 5)
+    // assert(newRover2.location.y === 1)
+    // assert(newRover2.location.direction === 'E')
 };
 testOne();

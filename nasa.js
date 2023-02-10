@@ -22,8 +22,7 @@ var sendMessage = function (rover, message) {
                 direction: rotate(rover.location.direction, message)
             } });
     }
-    var newLocation = move({ x: x, y: y }, message);
-    console.log(newLocation);
+    var newLocation = move({ x: x, y: y }, rover.location.direction);
     return __assign(__assign({}, rover), { location: __assign(__assign({}, newLocation), { direction: rover.location.direction }) });
 };
 exports.sendMessage = sendMessage;

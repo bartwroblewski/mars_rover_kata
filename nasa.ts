@@ -12,8 +12,7 @@ export const sendMessage = (rover: any, message: 'L' | 'R' | 'M') => {
             }
         }
     }
-    const newLocation = move({x, y}, message)
-    console.log(newLocation)
+    const newLocation = move({x, y}, rover.location.direction)
     return {
         ...rover,
         location: {
