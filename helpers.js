@@ -43,6 +43,8 @@ var move = function (location, direction) {
         E: { x: location.x + 1, y: location.y },
         W: { x: location.x - 1, y: location.y }
     };
-    return mapping[direction];
+    var result = mapping[direction];
+    console.log(location, direction, result);
+    return result;
 };
 exports.move = move;

@@ -29,18 +29,15 @@ const testOne = () => {
     const rover2 = parsedInput.rovers[1];
     const rover2Message = parsedInput.rovers[1].nasaMessage;
 
-    let newRover1 = Array.from(rover1Message).map(char => sendMessage(rover1, char))
-    newRover1 = newRover1[newRover1.length -1]    
+    let newRover1 = Array.from(rover1Message).reduce((acc, char) => sendMessage(acc, char), rover1)
     assert(newRover1.location.x === 1)
     assert(newRover1.location.y === 3)
     assert(newRover1.location.direction === 'N')
 
-    let newRover2 = Array.from(rover2Message).map(char => sendMessage(rover2, char))
-    newRover2 = newRover2[newRover2.length -1]
-    console.log(newRover2)
-    // assert(newRover2.location.x === 5)
-    // assert(newRover2.location.y === 1)
-    // assert(newRover2.location.direction === 'E')
+    let newRover2 = Array.from(rover2Message).reduce((acc, char) => sendMessage(acc, char), rover2)
+    assert(newRover2.location.x === 5)
+    assert(newRover2.location.y === 1)
+    assert(newRover2.location.direction === 'E')
 
 }
 

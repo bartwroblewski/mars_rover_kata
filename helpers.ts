@@ -45,5 +45,7 @@ export const move = (location: Location, direction: Direction): Location => {
         E: {x: location.x + 1, y: location.y},
         W: {x: location.x -1, y: location.y},
     }
-    return mapping[direction]
+    const result = mapping[direction]
+    console.log(location, direction, result)
+    return result
 }
