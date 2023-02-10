@@ -1,20 +1,22 @@
-interface Coordinate {
+export interface Coordinate {
     x: number,
     y: number,
 }
 
-interface PlanetSize {
+interface PlanetCoordinates {
     bottom: Coordinate,
     top: Coordinate,
 }
 
 interface Planet {
-    size: PlanetSize,
+    coordinates: PlanetCoordinates,
 }
 
 export const Mars: Planet = {
-    size: {
+    coordinates: {
         bottom: {x: 0, y: 0},
         top: {x: 5, y: 5},
     },
 }
+
+export const x = 'grgr'
