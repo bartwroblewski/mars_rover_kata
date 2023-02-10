@@ -34,8 +34,9 @@ var testOne = function () {
     (0, exports.assert)(newRover1.location.x === 1);
     (0, exports.assert)(newRover1.location.y === 3);
     (0, exports.assert)(newRover1.location.direction === 'N');
-    // let newRover2 = Array.from(rover2Message).map(char => sendMessage(rover2, char))
-    // newRover2 = newRover2[newRover2.length -1]
+    var newRover2 = Array.from(rover2Message).map(function (char) { return sendMessage(rover2, char); });
+    newRover2 = newRover2[newRover2.length - 1];
+    console.log(newRover2);
     // assert(newRover2.location.x === 5)
     // assert(newRover2.location.y === 1)
     // assert(newRover2.location.direction === 'E')
