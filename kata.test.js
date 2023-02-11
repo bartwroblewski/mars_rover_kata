@@ -27,12 +27,14 @@ var move = function (facing, point) { return moves[facing](point); };
 var rotateRover = function (rover, rotation) {
     return __assign(__assign({}, rover), { location: __assign(__assign({}, rover.location), { direction: rotate(rover.location.direction, rotation) }) });
 };
+var rotateRoverLeft = function (rover) { return rotateRover(rover, 'L'); };
+var rotateRoverRight = function (rover) { return rotateRover(rover, 'R'); };
 var moveRover = function (rover) {
     return __assign(__assign({}, rover), { location: __assign(__assign({}, move(rover.location.direction, __assign({}, rover.location))), { direction: rover.location.direction }) });
 };
 var actionCallback = {
-    'L': function (rover) { return rotateRover(rover, 'L'); },
-    'R': function (rover) { return rotateRover(rover, 'R'); },
+    'L': rotateRoverLeft,
+    'R': rotateRoverRight,
     'M': moveRover
 };
 var roverReducer = function (rover, action) { return actionCallback[action](rover); };
