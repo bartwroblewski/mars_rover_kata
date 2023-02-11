@@ -18,9 +18,6 @@ interface Rover {
   nasaMessage: string, // can it be more specific: not any string, but combination of "rover actions"?
 }
 
-// const isRotation = (action: RoverAction): action is Rotation => action === 'R' || action === 'L'
-// const isMove = (action: RoverAction): action is Move => action === 'M'
-
 const rotations: Record<Direction, Record<Rotation, Direction>> = {
     N: {L: 'W', R: 'E'},
     S: {L: 'E', R: 'W'},

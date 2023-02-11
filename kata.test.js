@@ -19,8 +19,6 @@ var assert = function (cond) {
     }
 };
 exports.assert = assert;
-// const isRotation = (action: RoverAction): action is Rotation => action === 'R' || action === 'L'
-// const isMove = (action: RoverAction): action is Move => action === 'M'
 var rotations = {
     N: { L: 'W', R: 'E' },
     S: { L: 'E', R: 'W' },
