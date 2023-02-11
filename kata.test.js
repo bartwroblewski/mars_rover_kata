@@ -16,7 +16,9 @@ var rotations = {
     E: { L: 'N', R: 'S' },
     W: { L: 'S', R: 'N' }
 };
-var rotate = function (facing, rotation) { return rotations[facing][rotation]; };
+var rotate = function (facing, rotation) {
+    return rotations[facing][rotation];
+};
 var moves = {
     N: function (p) { return (__assign(__assign({}, p), { y: p.y + 1 })); },
     S: function (p) { return (__assign(__assign({}, p), { y: p.y - 1 })); },
@@ -32,12 +34,14 @@ var rotateRoverRight = function (rover) { return rotateRover(rover, 'R'); };
 var moveRover = function (rover) {
     return __assign(__assign({}, rover), { location: __assign(__assign({}, move(rover.location.direction, __assign({}, rover.location))), { direction: rover.location.direction }) });
 };
-var actionCallback = {
+var actionCallbackMap = {
     'L': rotateRoverLeft,
     'R': rotateRoverRight,
     'M': moveRover
 };
-var roverReducer = function (rover, action) { return actionCallback[action](rover); };
+var roverReducer = function (rover, action) {
+    return actionCallbackMap[action](rover);
+};
 var executeRoverMessage = function (rover) {
     return Array.from(rover.nasaMessage).reduce(roverReducer, rover);
 };

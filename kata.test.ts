@@ -18,7 +18,8 @@ const rotations: Record<Direction, Record<Rotation, Direction>> = {
     E: {L: 'N', R: 'S'},
     W: {L: 'S', R: 'N'},
 }
-const rotate = (facing: Direction, rotation: Rotation): Direction => rotations[facing][rotation]
+const rotate = (facing: Direction, rotation: Rotation): Direction =>
+  rotations[facing][rotation]
 
 const moves: Record<Direction, (p: Point) => Point> = {
   N: (p) => ({...p, y: p.y + 1}),
@@ -56,7 +57,8 @@ const actionCallbackMap: Record<RoverAction, (rover: Rover) => Rover> = {
   'M': moveRover,
 }
 
-const roverReducer = (rover: Rover, action: RoverAction): Rover => actionCallbackMap[action](rover)
+const roverReducer = (rover: Rover, action: RoverAction): Rover =>
+  actionCallbackMap[action](rover)
 
 const executeRoverMessage = (rover: Rover): Rover => { // should be sendMessage, and rover be separate from message?
   return Array.from(rover.nasaMessage).reduce(roverReducer, rover)
