@@ -1,7 +1,7 @@
 var { assert, parseInput } = require('./helpers')
 
 type Axis = number // or 0|1|2|3|4|5 ?
-type Point = {x: number, y: number}
+type Point = {x: Axis, y: Axis}
 type Rotation = 'R' | 'L'
 type Move = 'M'
 type RoverAction = Rotation | Move
