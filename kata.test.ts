@@ -54,8 +54,6 @@ const moveRover = (rover: Rover) => {
 }
 
 const roverReducer = (rover: Rover, action: RoverAction): Rover => {
-  let newLocation: Location
-  let result: Rover
   if (action === 'L' || action === 'R') {
     return rotateRover(rover, action)
   }

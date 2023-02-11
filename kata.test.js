@@ -40,8 +40,6 @@ var moveRover = function (rover) {
     return __assign(__assign({}, rover), { location: __assign(__assign({}, move(rover.location.direction, __assign({}, rover.location))), { direction: rover.location.direction }) });
 };
 var roverReducer = function (rover, action) {
-    var newLocation;
-    var result;
     if (action === 'L' || action === 'R') {
         return rotateRover(rover, action);
     }
