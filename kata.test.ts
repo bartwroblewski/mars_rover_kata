@@ -74,10 +74,11 @@ const testOne = () => {
     '1 3 N',
     '5 1 E',
   ]
-  const rovers = parseInput(input).rovers
-  const result = rovers.map(executeRoverMessage)
-  console.log(result)
-  // assert(expected.join('_') === result.join('_'))
+  let parsedInput = parseInput(input)
+  const rovers = parsedInput.rovers.map(executeRoverMessage)
+  
+  assert(rovers[0].location.x === 1 && rovers[0].location.y === 3 && rovers[0].location.direction === 'N')
+  assert(rovers[1].location.x === 5 && rovers[1].location.y === 1 && rovers[1].location.direction === 'E')
 
 }
 

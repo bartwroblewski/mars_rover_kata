@@ -70,9 +70,9 @@ var testOne = function () {
         '1 3 N',
         '5 1 E',
     ];
-    var rovers = parseInput(input).rovers;
-    var result = rovers.map(executeRoverMessage);
-    console.log(result);
-    // assert(expected.join('_') === result.join('_'))
+    var parsedInput = parseInput(input);
+    var rovers = parsedInput.rovers.map(executeRoverMessage);
+    (0, exports.assert)(rovers[0].location.x === 1 && rovers[0].location.y === 3 && rovers[0].location.direction === 'N');
+    (0, exports.assert)(rovers[1].location.x === 5 && rovers[1].location.y === 1 && rovers[1].location.direction === 'E');
 };
 testOne();
