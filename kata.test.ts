@@ -32,9 +32,9 @@ const moves: Record<Direction, (p: Point) => Point> = {
   E: (p) => ({...p, x: p.x + 1}),
   W: (p) => ({...p, x: p.x - 1}),
 }
-const move = (facing: Direction, point: Point) => moves[facing](point)
+const move = (facing: Direction, point: Point): Point => moves[facing](point)
 
-const roverReducer = (rover: Rover, action: RoverAction) => {
+const roverReducer = (rover: Rover, action: RoverAction): Rover => {
   let newLocation: Location
   let result: Rover
   if (action === 'L' || action === 'R') {
@@ -49,7 +49,7 @@ const roverReducer = (rover: Rover, action: RoverAction) => {
   }
 }
 
-const executeRoverMessage = (rover: Rover) => { //should be sendMessage, and rover be separate from message?
+const executeRoverMessage = (rover: Rover): Rover => { //should be sendMessage, and rover be separate from message?
   return Array.from(rover.nasaMessage).reduce(roverReducer, rover)
 }
 
