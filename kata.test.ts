@@ -33,7 +33,7 @@ const rotateRover = (rover: Rover, rotation: Rotation) => {
     ...rover,
     location: {
       ...rover.location,
-      direction: rotate(rover.location.direction, rotation)
+      direction: rotate(rover.location.direction, rotation),
     }
   }
 }
@@ -42,7 +42,7 @@ const moveRover = (rover: Rover) => {
     ...rover,
     location: {
       ...move(rover.location.direction, {...rover.location}), 
-      direction: rover.location.direction
+      direction: rover.location.direction,
     },
   }
 }
