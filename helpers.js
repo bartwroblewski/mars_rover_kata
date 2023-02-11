@@ -1,8 +1,7 @@
 "use strict";
 exports.__esModule = true;
-exports.move = exports.rotate = exports.parseInput = void 0;
+exports.parseInput = void 0;
 var parseInput = function (input) {
-    // const rovers
     return {
         rovers: [
             {
@@ -25,25 +24,3 @@ var parseInput = function (input) {
     };
 };
 exports.parseInput = parseInput;
-var rotate = function (initDirection, rotation) {
-    var mapping = {
-        N: { L: 'W', R: 'E' },
-        S: { L: 'E', R: 'W' },
-        E: { L: 'N', R: 'S' },
-        W: { L: 'S', R: 'N' }
-    };
-    return mapping[initDirection][rotation];
-};
-exports.rotate = rotate;
-var move = function (location, direction) {
-    var mapping = {
-        N: { x: location.x, y: location.y + 1 },
-        S: { x: location.x, y: location.y - 1 },
-        E: { x: location.x + 1, y: location.y },
-        W: { x: location.x - 1, y: location.y }
-    };
-    var result = mapping[direction];
-    console.log(location, direction, result);
-    return result;
-};
-exports.move = move;
