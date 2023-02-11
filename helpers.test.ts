@@ -1,5 +1,4 @@
-var { parseInput, rotate } = require('./helpers')
-var { assert } = require('./kata.test')
+var { parseInput, assert } = require('./helpers')
 
 const testParseInput = () => {
     const input = [

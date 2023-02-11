@@ -1,6 +1,6 @@
 "use strict";
 exports.__esModule = true;
-exports.parseInput = void 0;
+exports.assert = exports.parseInput = void 0;
 var parseInput = function (input) {
     return {
         rovers: [
@@ -24,3 +24,9 @@ var parseInput = function (input) {
     };
 };
 exports.parseInput = parseInput;
+var assert = function (cond) {
+    if (!cond) {
+        throw new Error('Assertion error!');
+    }
+};
+exports.assert = assert;

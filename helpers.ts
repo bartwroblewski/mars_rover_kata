@@ -20,3 +20,9 @@ export const parseInput = (input: string[]) => {
         ]
     }
 }
+
+export const assert = (cond: boolean) => {
+    if(!cond) {
+      throw new Error('Assertion error!')
+    }
+  }

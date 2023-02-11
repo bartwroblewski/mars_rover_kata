@@ -1,4 +1,3 @@
-"use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -10,15 +9,7 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-exports.__esModule = true;
-exports.assert = void 0;
-var parseInput = require('./helpers').parseInput;
-var assert = function (cond) {
-    if (!cond) {
-        throw new Error('Assertion error');
-    }
-};
-exports.assert = assert;
+var _a = require('./helpers'), assert = _a.assert, parseInput = _a.parseInput;
 var rotations = {
     N: { L: 'W', R: 'E' },
     S: { L: 'E', R: 'W' },
@@ -64,7 +55,7 @@ var testKata = function () {
     // ]
     var parsedInput = parseInput(input);
     var rovers = parsedInput.rovers.map(executeRoverMessage);
-    (0, exports.assert)(rovers[0].location.x === 1 && rovers[0].location.y === 3 && rovers[0].location.direction === 'N');
-    (0, exports.assert)(rovers[1].location.x === 5 && rovers[1].location.y === 1 && rovers[1].location.direction === 'E');
+    assert(rovers[0].location.x === 1 && rovers[0].location.y === 3 && rovers[0].location.direction === 'N');
+    assert(rovers[1].location.x === 5 && rovers[1].location.y === 1 && rovers[1].location.direction === 'E');
 };
 testKata();

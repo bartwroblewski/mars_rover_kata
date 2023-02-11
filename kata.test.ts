@@ -1,10 +1,4 @@
-var { parseInput } = require('./helpers')
-
-export const assert = (cond) => {
-  if(!cond) {
-    throw new Error('Assertion error')
-  }
-}
+var { assert, parseInput } = require('./helpers')
 
 type Axis = number // or 0|1|2|3|4|5 ?
 type Point = {x: number, y: number}
@@ -12,9 +6,9 @@ type Rotation = 'R' | 'L'
 type Move = 'M'
 type RoverAction = Rotation | Move
 type Direction = 'N' | 'S' | 'W' | 'E'
-type Location = {x: Axis, y: Axis, direction: Direction}
+type Loc = {x: Axis, y: Axis, direction: Direction}
 interface Rover {
-  location: Location,
+  location: Loc,
   nasaMessage: string, // can it be more specific: not any string, but combination of "rover actions"?
 }
 
