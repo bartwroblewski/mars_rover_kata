@@ -58,7 +58,7 @@ var roverReducer = function (rover, action) {
 var executeRoverMessage = function (rover) {
     return Array.from(rover.nasaMessage).reduce(roverReducer, rover);
 };
-var testOne = function () {
+var testKata = function () {
     var input = [
         '5 5',
         '1 2 N',
@@ -75,4 +75,4 @@ var testOne = function () {
     (0, exports.assert)(rovers[0].location.x === 1 && rovers[0].location.y === 3 && rovers[0].location.direction === 'N');
     (0, exports.assert)(rovers[1].location.x === 5 && rovers[1].location.y === 1 && rovers[1].location.direction === 'E');
 };
-testOne();
+testKata();

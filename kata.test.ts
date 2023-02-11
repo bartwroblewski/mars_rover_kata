@@ -62,7 +62,7 @@ const executeRoverMessage = (rover: Rover) => { //should be sendMessage, and rov
   return Array.from(rover.nasaMessage).reduce(roverReducer, rover)
 }
 
-const testOne = () => {
+const testKata = () => {
   const input = [
     '5 5',
     '1 2 N',
@@ -82,4 +82,4 @@ const testOne = () => {
 
 }
 
-testOne()
+testKata()
