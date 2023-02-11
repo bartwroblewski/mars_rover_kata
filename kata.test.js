@@ -1,10 +1,6 @@
 "use strict";
 exports.__esModule = true;
 exports.assert = void 0;
-// var assert = require('assert')
-var Mars = require('./planet').Mars;
-var _a = require('./rover'), Rover = _a.Rover, RoverLocation = _a.RoverLocation;
-var sendMessage = require('./nasa').sendMessage;
 var parseInput = require('./helpers').parseInput;
 var assert = function (cond) {
     if (!cond) {
@@ -22,6 +18,9 @@ var roverReducer = function (rover, action) {
             return '';
     }
 };
+var executeRoverMessage = function (rover) {
+    return Array.from(rover.nasaMessage).reduce(roverReducer, rover);
+};
 var testOne = function () {
     var input = [
         '5 5',
@@ -35,8 +34,7 @@ var testOne = function () {
         '5 1 E',
     ];
     var rovers = parseInput(input).rovers;
-    var result = rovers.map(function (rover) { return rover.nasaMessage.reduce(roverReducer); });
-    var assert;
-    (expected.join('_') === result.join('_'));
+    var result = rovers.map(executeRoverMessage);
+    (0, exports.assert)(expected.join('_') === result.join('_'));
 };
 testOne();

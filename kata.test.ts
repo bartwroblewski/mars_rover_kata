@@ -1,7 +1,3 @@
-// var assert = require('assert')
-var { Mars } = require('./planet')
-var { Rover, RoverLocation } = require('./rover')
-var { sendMessage } = require('./nasa')
 var { parseInput } = require('./helpers')
 
 export const assert = (cond) => {
@@ -9,6 +5,7 @@ export const assert = (cond) => {
     throw new Error('Assertion error')
   }
 }
+
 type Axis = 0|1|2|3|4|5
 type RoverAction = 'R' | 'L' | 'M'
 type Direction = 'N' | 'S' | 'W' | 'E'
@@ -33,6 +30,10 @@ const roverReducer = (rover: Rover, action: RoverAction) => {
   }
 }
 
+const executeRoverMessage = (rover: Rover) => { //should be sendMessage, and rover be separate from message?
+  return Array.from(rover.nasaMessage).reduce(roverReducer, rover)
+}
+
 const testOne = () => {
   const input = [
     '5 5',
@@ -46,8 +47,8 @@ const testOne = () => {
     '5 1 E',
   ]
   const rovers = parseInput(input).rovers
-  const result = rovers.map(rover => rover.nasaMessage.reduce(roverReducer))
-  const assert(expected.join('_') === result.join('_'))
+  const result = rovers.map(executeRoverMessage)
+  assert(expected.join('_') === result.join('_'))
 
 }
 
