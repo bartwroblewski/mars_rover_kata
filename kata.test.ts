@@ -6,7 +6,7 @@ export const assert = (cond) => {
   }
 }
 
-type Axis = 0|1|2|3|4|5
+type Axis = number //0|1|2|3|4|5
 type Point = {x: number, y: number}
 type Rotation = 'R' | 'L'
 type Move = 'M'
