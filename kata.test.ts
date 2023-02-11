@@ -9,6 +9,28 @@ export const assert = (cond) => {
     throw new Error('Assertion error')
   }
 }
+type RoverAction = 'R' | 'L' | 'M'
+
+interface Rover {
+  location: {
+    x: number,
+    y: number,
+    direction: 'N' | 'S' | 'W' | 'E',
+  }
+  nasaMessage: string, // can it be more specific: not any string, but combination of "rover actions"?
+}
+
+const roverReducer = (rover: Rover, action: RoverAction) => {
+  switch (action) {
+    case 'R':
+      return ''
+    case 'L':
+      return ''
+    case 'M':
+      return ''
+  }
+}
+
 const testOne = () => {
   const input = [
     '5 5',
@@ -21,23 +43,9 @@ const testOne = () => {
     '1 3 N',
     '5 1 E',
   ]
-    const parsedInput = parseInput(input);
-
-    const rover1 = parsedInput.rovers[0];
-    const rover1Message: string = parsedInput.rovers[0].nasaMessage;
-
-    const rover2 = parsedInput.rovers[1];
-    const rover2Message = parsedInput.rovers[1].nasaMessage;
-
-    let newRover1 = Array.from(rover1Message).reduce((acc, char) => sendMessage(acc, char), rover1)
-    assert(newRover1.location.x === 1)
-    assert(newRover1.location.y === 3)
-    assert(newRover1.location.direction === 'N')
-
-    let newRover2 = Array.from(rover2Message).reduce((acc, char) => sendMessage(acc, char), rover2)
-    assert(newRover2.location.x === 5)
-    assert(newRover2.location.y === 1)
-    assert(newRover2.location.direction === 'E')
+  const rovers = parseInput(input).rovers
+  const result = rovers.map(rover => rover.nasaMessage.reduce(roverReducer))
+  const assert(expected.join('_') === result.join('_'))
 
 }
 

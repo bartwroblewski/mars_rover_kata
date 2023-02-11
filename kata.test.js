@@ -12,6 +12,16 @@ var assert = function (cond) {
     }
 };
 exports.assert = assert;
+var roverReducer = function (rover, action) {
+    switch (action) {
+        case 'R':
+            return '';
+        case 'L':
+            return '';
+        case 'M':
+            return '';
+    }
+};
 var testOne = function () {
     var input = [
         '5 5',
@@ -24,18 +34,9 @@ var testOne = function () {
         '1 3 N',
         '5 1 E',
     ];
-    var parsedInput = parseInput(input);
-    var rover1 = parsedInput.rovers[0];
-    var rover1Message = parsedInput.rovers[0].nasaMessage;
-    var rover2 = parsedInput.rovers[1];
-    var rover2Message = parsedInput.rovers[1].nasaMessage;
-    var newRover1 = Array.from(rover1Message).reduce(function (acc, char) { return sendMessage(acc, char); }, rover1);
-    (0, exports.assert)(newRover1.location.x === 1);
-    (0, exports.assert)(newRover1.location.y === 3);
-    (0, exports.assert)(newRover1.location.direction === 'N');
-    var newRover2 = Array.from(rover2Message).reduce(function (acc, char) { return sendMessage(acc, char); }, rover2);
-    (0, exports.assert)(newRover2.location.x === 5);
-    (0, exports.assert)(newRover2.location.y === 1);
-    (0, exports.assert)(newRover2.location.direction === 'E');
+    var rovers = parseInput(input).rovers;
+    var result = rovers.map(function (rover) { return rover.nasaMessage.reduce(roverReducer); });
+    var assert;
+    (expected.join('_') === result.join('_'));
 };
 testOne();

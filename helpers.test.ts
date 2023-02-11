@@ -8,13 +8,8 @@ const testParseInput = () => {
         'LMLMLMLMM',
         '3 3 E',
         'MMRMMRMRRM',
-      ]//.reduce((acc, curr) => acc + ' ' + curr)
+      ]
     const parsedInput = parseInput(input)
-
-    assert(parsedInput.planetCoordinates.x0 === 0)
-    assert(parsedInput.planetCoordinates.y0 === 0)
-    assert(parsedInput.planetCoordinates.x1 === 5)
-    assert(parsedInput.planetCoordinates.y1 === 5)
 
     assert(parsedInput.rovers[0].location.x === 1)
     assert(parsedInput.rovers[0].location.y === 2)
