@@ -6,7 +6,7 @@ export const assert = (cond) => {
   }
 }
 
-type Axis = number //0|1|2|3|4|5
+type Axis = number // or 0|1|2|3|4|5 ?
 type Point = {x: number, y: number}
 type Rotation = 'R' | 'L'
 type Move = 'M'
@@ -62,7 +62,7 @@ const roverReducer = (rover: Rover, action: RoverAction): Rover => {
   }
 }
 
-const executeRoverMessage = (rover: Rover): Rover => { //should be sendMessage, and rover be separate from message?
+const executeRoverMessage = (rover: Rover): Rover => { // should be sendMessage, and rover be separate from message?
   return Array.from(rover.nasaMessage).reduce(roverReducer, rover)
 }
 
