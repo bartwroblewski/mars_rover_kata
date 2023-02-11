@@ -34,9 +34,7 @@ var moves = {
     E: function (p) { return (__assign(__assign({}, p), { x: p.x + 1 })); },
     W: function (p) { return (__assign(__assign({}, p), { x: p.x - 1 })); }
 };
-var move = function (facing, point) {
-    return moves[facing](point);
-};
+var move = function (facing, point) { return moves[facing](point); };
 var roverReducer = function (rover, action) {
     var newLocation;
     var result;

@@ -35,9 +35,7 @@ const moves: Record<Direction, (p: Point) => Point> = {
   E: (p) => ({...p, x: p.x + 1}),
   W: (p) => ({...p, x: p.x - 1}),
 }
-const move = (facing: Direction, point: Point) => {
-  return moves[facing](point)
-}
+const move = (facing: Direction, point: Point) => moves[facing](point)
 
 const roverReducer = (rover: Rover, action: RoverAction) => {
   let newLocation: Location
