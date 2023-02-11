@@ -40,19 +40,15 @@ var move = function (facing, point) {
 var roverReducer = function (rover, action) {
     var newLocation;
     var result;
-    switch (action) {
-        case 'L':
-            newLocation = __assign(__assign({}, rover.location), { direction: rotate(rover.location.direction, action) });
-            result = __assign(__assign({}, rover), { location: newLocation });
-            return result;
-        case 'R':
-            newLocation = __assign(__assign({}, rover.location), { direction: rotate(rover.location.direction, action) });
-            result = __assign(__assign({}, rover), { location: newLocation });
-            return result;
-        case 'M':
-            newLocation = __assign(__assign({}, move(rover.location.direction, __assign({}, rover.location))), { direction: rover.location.direction });
-            result = __assign(__assign({}, rover), { location: newLocation });
-            return result;
+    if (action === 'L' || action === 'R') {
+        newLocation = __assign(__assign({}, rover.location), { direction: rotate(rover.location.direction, action) });
+        result = __assign(__assign({}, rover), { location: newLocation });
+        return result;
+    }
+    if (action === 'M') {
+        newLocation = __assign(__assign({}, move(rover.location.direction, __assign({}, rover.location))), { direction: rover.location.direction });
+        result = __assign(__assign({}, rover), { location: newLocation });
+        return result;
     }
 };
 var executeRoverMessage = function (rover) {

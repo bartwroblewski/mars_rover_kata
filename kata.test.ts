@@ -42,16 +42,12 @@ const move = (facing: Direction, point: Point) => {
 const roverReducer = (rover: Rover, action: RoverAction) => {
   let newLocation: Location
   let result: Rover
-  switch (action) {
-    case 'L':
-      newLocation = {...rover.location, direction: rotate(rover.location.direction, action)}
-      result = {...rover, location: newLocation}
-      return result
-    case 'R':
-      newLocation = {...rover.location, direction: rotate(rover.location.direction, action)}
-      result = {...rover, location: newLocation}
-      return result
-    case 'M':
+  if (action === 'L' || action === 'R') {
+    newLocation = {...rover.location, direction: rotate(rover.location.direction, action)}
+    result = {...rover, location: newLocation}
+    return result
+  }
+  if (action === 'M') {
       newLocation = {...move(rover.location.direction, {...rover.location}), direction: rover.location.direction}
       result = {...rover, location: newLocation}
       return result
