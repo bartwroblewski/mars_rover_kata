@@ -66,10 +66,10 @@ var testOne = function () {
         '3 3 E',
         'MMRMMRMRRM',
     ];
-    var expected = [
-        '1 3 N',
-        '5 1 E',
-    ];
+    // const expected = [
+    //   '1 3 N',
+    //   '5 1 E',
+    // ]
     var parsedInput = parseInput(input);
     var rovers = parsedInput.rovers.map(executeRoverMessage);
     (0, exports.assert)(rovers[0].location.x === 1 && rovers[0].location.y === 3 && rovers[0].location.direction === 'N');

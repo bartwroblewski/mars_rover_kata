@@ -70,10 +70,10 @@ const testOne = () => {
     '3 3 E',
     'MMRMMRMRRM',
   ]
-  const expected = [
-    '1 3 N',
-    '5 1 E',
-  ]
+  // const expected = [
+  //   '1 3 N',
+  //   '5 1 E',
+  // ]
   let parsedInput = parseInput(input)
   const rovers = parsedInput.rovers.map(executeRoverMessage)
   
