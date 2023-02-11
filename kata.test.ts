@@ -7,7 +7,7 @@ type Move = 'M'
 type RoverAction = Rotation | Move
 type Direction = 'N' | 'S' | 'W' | 'E'
 type Loc = {x: Axis, y: Axis, direction: Direction}
-interface Rover {
+type Rover = {
   location: Loc,
   nasaMessage: string, // can it be more specific: not any string, but combination of "rover actions"?
 }
