@@ -30,14 +30,12 @@ var rotateRover = function (rover, rotation) {
 var moveRover = function (rover) {
     return __assign(__assign({}, rover), { location: __assign(__assign({}, move(rover.location.direction, __assign({}, rover.location))), { direction: rover.location.direction }) });
 };
-var roverReducer = function (rover, action) {
-    if (action === 'L' || action === 'R') {
-        return rotateRover(rover, action);
-    }
-    if (action === 'M') {
-        return moveRover(rover);
-    }
+var actionCallback = {
+    'L': function (rover) { return rotateRover(rover, 'L'); },
+    'R': function (rover) { return rotateRover(rover, 'R'); },
+    'M': moveRover
 };
+var roverReducer = function (rover, action) { return actionCallback[action](rover); };
 var executeRoverMessage = function (rover) {
     return Array.from(rover.nasaMessage).reduce(roverReducer, rover);
 };

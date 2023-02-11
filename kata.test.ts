@@ -47,14 +47,13 @@ const moveRover = (rover: Rover) => {
   }
 }
 
-const roverReducer = (rover: Rover, action: RoverAction): Rover => {
-  if (action === 'L' || action === 'R') {
-    return rotateRover(rover, action)
-  }
-  if (action === 'M') {
-      return moveRover(rover)
-  }
+const actionCallback: Record<RoverAction, (rover: Rover) => Rover> = {
+  'L': (rover) => rotateRover(rover, 'L'),
+  'R': (rover) => rotateRover(rover, 'R'),
+  'M': moveRover,
 }
+
+const roverReducer = (rover: Rover, action: RoverAction): Rover => actionCallback[action](rover)
 
 const executeRoverMessage = (rover: Rover): Rover => { // should be sendMessage, and rover be separate from message?
   return Array.from(rover.nasaMessage).reduce(roverReducer, rover)
