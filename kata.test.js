@@ -28,13 +28,18 @@ var rotations = {
     W: { L: 'S', R: 'N' }
 };
 var rotate = function (facing, rotation) { return rotations[facing][rotation]; };
+var moves = {
+    N: function (p) { return ({ x: p.x, y: p.y + 1 }); },
+    S: function (p) { return ({ x: p.x, y: p.y - 1 }); },
+    E: function (p) { return ({ x: p.x + 1, y: p.y }); },
+    W: function (p) { return ({ x: p.x - 1, y: p.y }); }
+};
 var roverReducer = function (rover, action) {
     switch (action) {
         case ('R' || 'L'):
             var newLocation = __assign(__assign({}, rover.location), { direction: rotate(rover.location.direction, action) });
             return __assign(__assign({}, rover), { location: newLocation });
         case 'M':
-            return '';
     }
 };
 var executeRoverMessage = function (rover) {

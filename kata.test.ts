@@ -7,6 +7,7 @@ export const assert = (cond) => {
 }
 
 type Axis = 0|1|2|3|4|5
+type Point = {x: Axis, y: Axis}
 type Rotation = 'R' | 'L'
 type Move = 'M'
 type RoverAction = Rotation | Move
@@ -32,13 +33,19 @@ const rotations: Record<Direction, Record<Rotation, Direction>> = {
 }
 const rotate = (facing: Direction, rotation: Rotation): Direction => rotations[facing][rotation]
 
+const moves: Record<Direction, (p: Point) => Point> = {
+  N: (p) => ({x: p.x, y: p.y + 1}),
+  S: (p) => ({x: p.x, y: p.y - 1}),
+  E: (p) => ({x: p.x + 1, y: p.y}),
+  W: (p) => ({x: p.x - 1, y: p.y}),
+}
 const roverReducer = (rover: Rover, action: RoverAction) => {
   switch (action) {
     case ('R' || 'L'):
       const newLocation = {...rover.location, direction: rotate(rover.location.direction, action)}
       return {...rover, location: newLocation}
     case 'M':
-      return ''
+      
   }
 }
 
