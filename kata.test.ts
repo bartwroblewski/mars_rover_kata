@@ -34,18 +34,33 @@ const moves: Record<Direction, (p: Point) => Point> = {
 }
 const move = (facing: Direction, point: Point): Point => moves[facing](point)
 
+const rotateRover = (rover: Rover, rotation: Rotation) => {
+  return {
+    ...rover,
+    location: {
+      ...rover.location,
+      direction: rotate(rover.location.direction, rotation)
+    }
+  }
+}
+const moveRover = (rover: Rover) => {
+  return {
+    ...rover,
+    location: {
+      ...move(rover.location.direction, {...rover.location}), 
+      direction: rover.location.direction
+    },
+  }
+}
+
 const roverReducer = (rover: Rover, action: RoverAction): Rover => {
   let newLocation: Location
   let result: Rover
   if (action === 'L' || action === 'R') {
-    newLocation = {...rover.location, direction: rotate(rover.location.direction, action)}
-    result = {...rover, location: newLocation}
-    return result
+    return rotateRover(rover, action)
   }
   if (action === 'M') {
-      newLocation = {...move(rover.location.direction, {...rover.location}), direction: rover.location.direction}
-      result = {...rover, location: newLocation}
-      return result
+      return moveRover(rover)
   }
 }
 

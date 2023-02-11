@@ -33,18 +33,20 @@ var moves = {
     W: function (p) { return (__assign(__assign({}, p), { x: p.x - 1 })); }
 };
 var move = function (facing, point) { return moves[facing](point); };
+var rotateRover = function (rover, rotation) {
+    return __assign(__assign({}, rover), { location: __assign(__assign({}, rover.location), { direction: rotate(rover.location.direction, rotation) }) });
+};
+var moveRover = function (rover) {
+    return __assign(__assign({}, rover), { location: __assign(__assign({}, move(rover.location.direction, __assign({}, rover.location))), { direction: rover.location.direction }) });
+};
 var roverReducer = function (rover, action) {
     var newLocation;
     var result;
     if (action === 'L' || action === 'R') {
-        newLocation = __assign(__assign({}, rover.location), { direction: rotate(rover.location.direction, action) });
-        result = __assign(__assign({}, rover), { location: newLocation });
-        return result;
+        return rotateRover(rover, action);
     }
     if (action === 'M') {
-        newLocation = __assign(__assign({}, move(rover.location.direction, __assign({}, rover.location))), { direction: rover.location.direction });
-        result = __assign(__assign({}, rover), { location: newLocation });
-        return result;
+        return moveRover(rover);
     }
 };
 var executeRoverMessage = function (rover) {
