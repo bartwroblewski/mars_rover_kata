@@ -9,13 +9,15 @@ export const assert = (cond) => {
     throw new Error('Assertion error')
   }
 }
+type Axis = 0|1|2|3|4|5
 type RoverAction = 'R' | 'L' | 'M'
+type Direction = 'N' | 'S' | 'W' | 'E'
 
 interface Rover {
   location: {
-    x: number,
-    y: number,
-    direction: 'N' | 'S' | 'W' | 'E',
+    x: Axis,
+    y: Axis,
+    direction: Direction,
   }
   nasaMessage: string, // can it be more specific: not any string, but combination of "rover actions"?
 }
