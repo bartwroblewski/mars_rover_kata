@@ -7,18 +7,14 @@ export const assert = (cond) => {
 }
 
 type Axis = 0|1|2|3|4|5
-type Point = {x: Axis, y: Axis}
+type Point = {x: number, y: number}
 type Rotation = 'R' | 'L'
 type Move = 'M'
 type RoverAction = Rotation | Move
 type Direction = 'N' | 'S' | 'W' | 'E'
-
+type Location = {x: Axis, y: Axis, direction: Direction}
 interface Rover {
-  location: {
-    x: Axis,
-    y: Axis,
-    direction: Direction,
-  }
+  location: Location,
   nasaMessage: string, // can it be more specific: not any string, but combination of "rover actions"?
 }
 
@@ -39,13 +35,19 @@ const moves: Record<Direction, (p: Point) => Point> = {
   E: (p) => ({x: p.x + 1, y: p.y}),
   W: (p) => ({x: p.x - 1, y: p.y}),
 }
+const move = (facing: Direction, point: Point) => {
+  return moves[facing](point)
+}
+
 const roverReducer = (rover: Rover, action: RoverAction) => {
+  let newLocation: Location
   switch (action) {
     case ('R' || 'L'):
-      const newLocation = {...rover.location, direction: rotate(rover.location.direction, action)}
+      newLocation = {...rover.location, direction: rotate(rover.location.direction, action)}
       return {...rover, location: newLocation}
     case 'M':
-      
+      newLocation = {...move(rover.location.direction, {...rover.location}), direction: rover.location.direction}
+      return {...rover, location: newLocation}
   }
 }
 
