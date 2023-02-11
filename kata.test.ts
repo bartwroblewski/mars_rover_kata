@@ -30,10 +30,10 @@ const rotations: Record<Direction, Record<Rotation, Direction>> = {
 const rotate = (facing: Direction, rotation: Rotation): Direction => rotations[facing][rotation]
 
 const moves: Record<Direction, (p: Point) => Point> = {
-  N: (p) => ({x: p.x, y: p.y + 1}),
-  S: (p) => ({x: p.x, y: p.y - 1}),
-  E: (p) => ({x: p.x + 1, y: p.y}),
-  W: (p) => ({x: p.x - 1, y: p.y}),
+  N: (p) => ({...p, y: p.y + 1}),
+  S: (p) => ({...p, y: p.y - 1}),
+  E: (p) => ({...p, x: p.x + 1}),
+  W: (p) => ({...p, x: p.x - 1}),
 }
 const move = (facing: Direction, point: Point) => {
   return moves[facing](point)

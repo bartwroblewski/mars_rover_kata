@@ -29,10 +29,10 @@ var rotations = {
 };
 var rotate = function (facing, rotation) { return rotations[facing][rotation]; };
 var moves = {
-    N: function (p) { return ({ x: p.x, y: p.y + 1 }); },
-    S: function (p) { return ({ x: p.x, y: p.y - 1 }); },
-    E: function (p) { return ({ x: p.x + 1, y: p.y }); },
-    W: function (p) { return ({ x: p.x - 1, y: p.y }); }
+    N: function (p) { return (__assign(__assign({}, p), { y: p.y + 1 })); },
+    S: function (p) { return (__assign(__assign({}, p), { y: p.y - 1 })); },
+    E: function (p) { return (__assign(__assign({}, p), { x: p.x + 1 })); },
+    W: function (p) { return (__assign(__assign({}, p), { x: p.x - 1 })); }
 };
 var move = function (facing, point) {
     return moves[facing](point);
